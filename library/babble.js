@@ -16,7 +16,7 @@ function draw() {
 }
 
 $(function() {
-  kCanvas = document.getElementById('babble');
+  kCanvas = $('#babble');
   kContext = kCanvas.getContext('2d');
 
   WIDTH = kCanvas.width();

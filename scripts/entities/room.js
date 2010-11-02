@@ -8,6 +8,5 @@ var Room = function(id, name, users) {
 };
 
 Room.prototype.draw = function(context) {
-  alert('drawing ' + this.image + ' room with '+context);
-  context.drawImage(this.image, 0, 0);
+  context.drawImage(this.image, 0, 0, 408, 374);
 };

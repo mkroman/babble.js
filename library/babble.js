@@ -1,4 +1,4 @@
-var kCanvas, kContext, WIDTH, HEIGHT;
+var kCanvas, kContext, WIDTH = 800, HEIGHT = 600;
 
 function circle(x, y, r) {
   kContext.beginPath();
@@ -7,20 +7,31 @@ function circle(x, y, r) {
   kContext.fill();
 }
 
-var x = 50, y = 50;
+function rand(max) {
+  return Math.floor(Math.random() * max);
+}
+
+var x = rand(WIDTH), y = rand(HEIGHT), dx = 10, dy = 10;
 
 function draw() {
-  alert('firs');
   kContext.clearRect(0, 0, WIDTH, HEIGHT);
-  circle(x, y, 10);
+  circle(x, y, 20);
+
+  if (x + dx > WIDTH || x + dx < 0)
+    dx = -dx;
+  if (y + dy > HEIGHT || y + dy < 0)
+    dy = -dy;
+
+  x += dx;
+  y += dy;
 }
 
 $(function() {
   kCanvas = $('#babble');
   kContext = kCanvas[0].getContext('2d');
 
-  WIDTH = kCanvas.width();
-  HEIGHT = kCanvas.height();
+  kContext.fillStyle = "rgb(" + rand(255) + "," + rand(255) + "," + rand(255) + ")";
 
+  setInterval(draw, 10);
 });
 

@@ -15,6 +15,9 @@ var Babble = function(canvas) {
     myself.draw();
   }
 
+  for(var i = 0; i < 20; i++)
+    this.elements.push(new User(i));
+
   setInterval(tdraw, 10);
 };
 
@@ -23,6 +26,11 @@ Babble.prototype.draw = function() {
   var context = this.context;
 
   $.each(this.elements, function(index, value) {
+    // Lets introduce a crazy crowd
+    if (value instanceof User) {
+      value.x = Math.floor(Math.random() * 408);
+      value.y = Math.floor(Math.random() * 374);
+    }
     value.draw(context);
   });
 };

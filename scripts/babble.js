@@ -15,7 +15,7 @@ var Babble = function(canvas) {
 
   this.room.image.onload = function(event) { babble.draw(); }
 
-  canvas.click(function(event) {
+  canvas.mousedown(function(event) {
     babble.elements[1].x = Math.floor(event.clientX - canvas.offset().left) - (babble.elements[1].image.width * 0.5);
     babble.elements[1].y = Math.floor(event.clientY - canvas.offset().top) - (babble.elements[1].image.height * 0.5);
     babble.draw();

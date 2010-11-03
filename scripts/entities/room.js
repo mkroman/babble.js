@@ -8,6 +8,7 @@ var Room = function(id, name, users) {
 };
 
 Room.prototype.draw = function(context) {
-  context.strokeText("[" + this.id + "]" + this.name, 0, 0);
+  context.fillStyle = "red";
   context.drawImage(this.image, 0, 0, 408, 374);
+  context.fillText("[" + this.id + "] " + this.name, 3, 13);
 };

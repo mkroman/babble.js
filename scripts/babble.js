@@ -6,7 +6,7 @@ var Babble = function(canvas) {
   this.context = canvas[0].getContext('2d');
   this.connection = new BMPConnection();
 
-  this.room = new Room(1);
+  this.room = new Room(1, "HEIL HITLER");
   this.elements = [this.room];
 
   this.context.fillStyle = '#2C4D5C';

@@ -1,6 +1,6 @@
 var Room = function(id, name, users) {
   this.id = id;
-  this.name = name || "Exoroom";
+  this.name = name || "Neutral";
   this.users = users || [];
 
   this.image = new Image();

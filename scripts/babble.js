@@ -9,9 +9,17 @@ var Babble = function(canvas) {
   this.room = new Room(1, "HEIL HITLER");
   this.elements = [this.room];
 
+  this.elements.push(new User(1));
+
   this.context.fillStyle = '#2C4D5C';
 
   this.room.image.onload = function(event) { babble.draw(); }
+
+  canvas.click(function(event) {
+    babble.elements[1].x = Math.floor(event.clientX - canvas.offset().left);
+    babble.elements[1].y = Math.floor(event.clientY - canvas.offset().top);
+    babble.draw();
+  });
 };
 
 Babble.prototype.draw = function() {

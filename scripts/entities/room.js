@@ -19,10 +19,14 @@ Room.prototype.generate = function() {
       x = row * Tile.width;
       y = column * Tile.height;
 
-      if (column % 2 == 1)
+      if (column % 2 == 1) {
         x += Tile.width * 0.5;
 
-      this.tiles.push(new Tile(x, y));
+        if (row < 7)
+          this.tiles.push(new Tile(x, y));
+      } else {
+        this.tiles.push(new Tile(x, y));
+      }
     }
 }
 

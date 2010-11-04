@@ -10,9 +10,7 @@ var Babble = function(canvas) {
   this.elements = [this.room];
 
   this.elements.push(new User(1));
-
   this.context.fillStyle = '#2C4D5C';
-
   this.room.image.onload = function(event) { babble.draw(); }
 
   canvas.mousedown(function(event) {

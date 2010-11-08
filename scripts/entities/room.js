@@ -19,8 +19,7 @@ Room.prototype.generate = function() {
       y = column * Tile.height;
 
       if (column % 2 == 1)
-        if (row >= 7)
-          break;
+        if (row >= 7) break;
         else
           x += Tile.width * 0.5;
 
@@ -40,4 +39,15 @@ Room.prototype.draw = function(context) {
 
   context.font = "regular 12px arial";
   context.fillText(this.id + ": " + this.name, 3, 13);
+};
+
+Room.prototype.validTile = function(x, y) {
+  var result;
+
+  $.each(this.tiles, function(index, tile) {
+    if (tile.isInBounds(x, y))
+      result = tile;
+  });
+
+  return result;
 };

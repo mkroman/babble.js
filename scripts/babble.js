@@ -4,7 +4,8 @@ var Babble = function(canvas) {
   this.width = canvas.attr('width');
   this.height = canvas.attr('height');
   this.context = canvas[0].getContext('2d');
-  this.connection = new BMPConnection();
+  this.connection = new BMPConnection('localhost');
+  this.connection.establish();
 
   this.room = new Room(1, "HEIL HITLER");
   this.elements = [this.room];
@@ -14,8 +15,7 @@ var Babble = function(canvas) {
   this.room.image.onload = function(event) { babble.draw(); }
 
   canvas.mousedown(function(event) {
-    babble.elements[1].x = Math.floor(event.clientX - canvas.offset().left) - (babble.elements[1].image.width * 0.5);
-    babble.elements[1].y = Math.floor(event.clientY - canvas.offset().top) - (babble.elements[1].image.height * 0.5);
+    babble.mouseClick(Math.floor(event.clientX - canvas.offset().left), Math.floor(event.clientY - canvas.offset().top));
     babble.draw();
   });
 };
@@ -28,3 +28,10 @@ Babble.prototype.draw = function() {
   });
 };
 
+Babble.prototype.mouseClick = function(x, y) {
+  var tile;
+  if (tile = this.room.validTile(x, y)) {
+    this.elements[1].x = tile.x;
+    this.elements[1].y = tile.y;
+  }
+};

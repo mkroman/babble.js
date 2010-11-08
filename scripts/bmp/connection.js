@@ -7,11 +7,11 @@ var BMPConnection = function(host, port) {
 };
   
 BMPConnection.prototype.establish = function() {
-  this.socket = new WebSocket('ws://' + host + ':' + port + '/');
+  this.socket = new WebSocket('ws://' + this.host + ':' + this.port + '/');
 
   with (this.socket) {
     onopen = function(event) {
-      alert('Socket connection was opened.');
+      //alert('Socket connection was opened.');
     };
 
     onmessage = function(event) {
@@ -19,7 +19,7 @@ BMPConnection.prototype.establish = function() {
     };
 
     onclose = function(event) {
-      alert('Socket connection was closed.');
+      //alert('Socket connection was closed.');
     };
   }
 };
@@ -29,6 +29,6 @@ BMPConnection.prototype.transmit = function(name, body) {
 
   if (this.socket && this.socket.readyState == 1)
     this.socket.send(outgoingPackage.toJSON() + "\n");
-  else
-    alert('Could not transmit package');
+  //else
+    //alert('Could not transmit package');
 };

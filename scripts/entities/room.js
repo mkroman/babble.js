@@ -5,7 +5,7 @@ var Room = function(id, name, users) {
   this.tiles = [];
 
   this.image = new Image();
-  this.image.src = 'http://hhsrv.n.dk/chat/gfx/rum/special/niels.jpg';
+  this.image.src = 'images/support.jpg';
 
   this.generate();
 };

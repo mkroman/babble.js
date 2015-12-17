@@ -5,7 +5,7 @@ var User = function(id, name) {
   this.y = Math.floor(Math.random() * 374);
 
   this.image = new Image();
-  this.image.src = 'http://hhsrv.n.dk/chat/gfx/actors/guest.gif';
+  this.image.src = 'images/male.gif';
 
   this.image.onload = function(event) { kBabble.draw(); }
 }
